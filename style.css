@@ -1,0 +1,146 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.container{
+display: grid;
+height: 100vh;
+grid-template-columns: 0.4fr 3fr;
+grid-template-rows: 0.2fr 1fr;
+grid-template-areas: 
+"header header"
+"sidebar body";
+}
+
+header{
+    grid-area: header;
+    background-color: #E1F3F6;
+    display: grid;
+    place-content: center;
+
+}
+
+.pageHeading{
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: normal;
+}
+
+.sidenav{
+    grid-area: sidebar;
+    background-color: #E1F3F6;
+    display: grid;
+    justify-content: space-around;
+    
+    
+}
+
+.content{
+    grid-area: body;
+    display: flex;
+    background-color: #FFFFFF;
+    flex-direction: column;
+    
+    
+}
+
+ul{
+    list-style: none;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: black;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#addTask{
+    padding: 30px;
+    margin: 10px;
+    width: 90%;
+}
+
+.userNote{
+    background-color: #DFD8D8;
+    position: relative;
+    width: 60%;
+    height: 40px;
+}
+
+#saveNote{
+    background-color: #C9FF72;
+    height: 40px;
+    width: 20%;
+    font-family: 'Fira Sans', sans-serif;
+    color: black;
+}
+
+.ulList{
+    padding: 30px;
+    margin: 10px;
+    width: 50%;
+}
+
+.listItem{
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.submitPlan{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    margin: 10px;
+    height: 100%;
+    width: 90%;
+}
+
+#userDateInput{
+    background-color: #DFD8D8;
+    position: relative;
+    width: 60%;
+    height: 40px;
+}
+
+#submitMyPlan{
+    background-color: #C9FF72;
+    width: 60%;
+    height: 40px;
+    margin-bottom: 20px;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.del{
+
+    height: 30px;
+    width: 20px;
+
+}
+
+
+
+#submitMyPlan:hover{
+    box-shadow: black;
+}
+
+@media only screen and ( max-width: 440px){
+ .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 1fr 1fr;
+        grid-template-areas: 
+        "header"
+        "body"
+        "sidebar";
+    }
+
+}
+
+
