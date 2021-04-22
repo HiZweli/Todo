@@ -143,7 +143,7 @@ a{
 
 }
 
-/* to stop image and button click events getting mixed up*/
+/* to stop image and button click events getting mixed up */
 img {
     width: 100%;
     height: 100%;
