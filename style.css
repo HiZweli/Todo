@@ -80,7 +80,7 @@ a{
     color: black;
 }
 
-.deleteButton.setAttribute('name', task.id){
+.ulList{
     padding: 30px;
     margin: 10px;
     width: 50%;
@@ -141,12 +141,6 @@ a{
         "sidebar";
     }
 
-}
-
-/* to stop image and button click events getting mixed up */
-img {
-    width: 100%;
-    height: 100%;
 }
 
 

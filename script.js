@@ -8,8 +8,9 @@ const saveButton = document.querySelector('#saveButton');
 function addTaskToScreen(task) {
   // create elemets that are needed and add atrributes
   let { listItem, deleteButton, image } = createElementsForTheTask();
-  image.setAttribute('src', 'delete.png');
-  deleteButton.appendChild(image);
+  //image.setAttribute('src', 'delete.png');
+  //deleteButton.appendChild(image);
+  deleteButton.innerHTML = "X"
   deleteButton = addOnClickFunctionToButton(deleteButton);
   assignIDToButton(task, deleteButton);
 
@@ -160,11 +161,13 @@ function getTasks() {
     for (let task of oldTasks) {
       // create elemets that are needed and add atrributes
       const {listItem, deleteButton, image} = createElementsForTheTask();
-      image.setAttribute('src', 'delete.png');
+      // image.setAttribute('src', 'delete.png');
+
+	  deleteButton.innerHTML = "X"
+      // deleteButton.appendChild(image);
 	  assignIDToButton(task, deleteButton)
 	  addOnClickFunctionToButton(deleteButton)
 
-      deleteButton.appendChild(image);
       listItem.innerHTML = task.taskName;
       listItem.appendChild(deleteButton);
 
@@ -183,10 +186,8 @@ function getTasks() {
  */
 function deleteTasks(event) {
   const idOfTaskToDelete = event.target.name;
-  const image = event.target;
-  console.log('target image : , ', image);
-  console.log('target name : , ', event.target.parentNode.name);
-
+  const button = event.target;
+  console.log('target button : , ', button);
 
   // get tasks and Delete
   const tasks = getItemsInSessionStorage('tasks');
@@ -195,7 +196,7 @@ function deleteTasks(event) {
     for (let task of tasks) {
       if (task.id === idOfTaskToDelete) {
 		console.log("deleting task : ", task)
-        removeTaskFromScreen(image);
+        removeTaskFromScreen(button);
         removeTaskFromSessionStorage(tasks, task);
       }
     }
@@ -221,10 +222,9 @@ function getHtmlElement(selector) {
  *
  * @param {Object} task
  */
-function removeTaskFromScreen(image) {
+function removeTaskFromScreen(button) {
   const unorderdList = getHtmlElement('.ulList');
-  const deleteButton = image.parentNode;
-  const listItem = deleteButton.parentNode;
+  const listItem  = button.parentNode;
   unorderdList.removeChild(listItem);
 }
 
@@ -236,7 +236,7 @@ function removeTaskFromScreen(image) {
  */
 function removeTaskFromSessionStorage(tasks, taskToBeDelete) {
   const remainingTasks = tasks.filter((taskInList) => {
-    return taskInList !== taskToBeDelete.id;
+    return taskInList.id !== taskToBeDelete.id;
   });
 
   const remainingTasksString = JSON.stringify(remainingTasks);
