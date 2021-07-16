@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<HTML>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo</title>
+
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="pageHeading">Plan</h1>
+        </header>
+        <aside class="sidenav">
+            <ul>
+                <li><a href="today.html" class="current">Today</a></li>
+                <li><a href="plan.html">Plan</a></li>
+                <li><a href="history.html">History</a></li>
+            <ul>
+        </aside>
+        <article class="content">
+            <div id="addTask">
+                <input type="text" name="addTask" value="" class="userNote">
+                <button type="button" id="saveButton" >Save</button>
+            </div>
+            <div class="listOfTasks">
+                <ul class="ulList">
+                </ul>
+            </div>
+            <div class="submitPlan">
+                <input type="date" id="userDateInput" placeholder="Date"><br><br>
+                <button type="button" id="submitMyPlan">Submit My Plan</button>
+            </div>
+        </article>
+    </div>
+
+
+</body>
+
+</HTML>
